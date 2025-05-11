@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+<meta name="Keywords" content="letras griegas, griego, abecedario griego" />
+<meta name="Description" content="Utiliza esta aplicación online para memorizar las letras griegas f&aacute;cilmente" >
+	<title>Memoriza las letras griegas</title>
+	<script src="jquery-1.9.1.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	mostrarnombre = 1; delaynombre = 500; fadenombre = 0 //sí=1
+	baseAplicacion = "letrasgriegas" //letrasgriegas,letraslatinas
+	cantidadmaxima = 48;			//48 letras griegas, 53 latinas
+
+	function otra(){
+		location.reload(false);
+	}
+
+	inferior = 0; numPosibilidades = cantidadmaxima - inferior
+   	aleat = Math.random() * numPosibilidades; aleat = Math.round(aleat) 
+	indiceLetra = parseInt(inferior) + aleat;
+	abecedarioLatino = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz"
+	abecedarioGriego = "ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρσςτυψχψω"
+	var letraGriega = ["alfa","beta","gama","delta","epsilon","seta","eta","teta","iota","kapa","lambda","miu","niu","ksi","omicron","pi","ro","sigma","tau","ipsilon","fi","ji","psi","omega","alfa","beta","gama","delta","epsilon","seta","eta","teta","iota","kapa","lambda","miu","niu","ksi","omicron","pi","ro","sigma","sigma","tau","ipsilon","fi","ji","psi","omega"]
+	var letraLatina = ["A","BE larga","CE","DE","E","EFE","JE","ACHE","I","JOTA","KA","ELE","EME","ENE","EÑE","O","PE","KU","ERRE","ESE","TE","U","BE CORTA","DOBLE BE","EKIS","i GRIEGA","SETA","A","BE larga","CE","DE","E","EFE","JE","ACHE","I","JOTA","KA","ELE","EME","ENE","EÑE","O","PE","KU","ERRE","ESE","TE","U","BE CORTA","DOBLE BE","EKIS","i GRIEGA","SETA"]
+	letraElegidaGriega = abecedarioGriego.charAt(indiceLetra) + letraGriega[indiceLetra]
+	letraElegidaLatina = abecedarioLatino.charAt(indiceLetra) + letraLatina[indiceLetra]
+	if (baseAplicacion=="letrasgriegas"){	letraElegida = abecedarioGriego.charAt(indiceLetra) + letraGriega[indiceLetra] }
+	if (baseAplicacion=="letraslatinas"){	letraElegida = abecedarioLatino.charAt(indiceLetra) + letraLatina[indiceLetra] }
+</script>
+</head>
+
+<body>
+<div id="contenedor">
+
+	<div style="text-align:right;"></div>
+	<div style="margin-left: 50%">
+		<div style="margin-left:-200px; width: 400px;">
+			<button type="button" id="linkopciones">Opciones</button>
+			<button type="button" id="botonotra" onClick="javascript:otra();">Otra (Click, Enter, F5)</button>
+		</div>
+		<div id="opciones" style="display:none; height: 100px;">
+			<div id="opcionesint" style="display:none;">
+				<div style="margin-left:-200px; width: 400px;display:none;">
+					selecci&oacute;n de base
+				</div>
+				<div style="width:400px;margin:20px 0 0 -200px; text-align: justify; font-size:12px; line-height:15px;">
+					¿ M&aacute;s r&aacute;pido ? Descarga los archivos de la aplicaci&oacute;n y utilizala en tu computador <a href="letra-aleatoria-descarga.html">Click aqu&iacute;</a>
+				</div>
+				<div style="width:400px;margin:20px 0 0 -200px; text-align: justify; font-size:12px; line-height:15px;">
+					Puedes colaborar invitando a otros en redes sociales, blogs y foros.<br />
+					O hacer una colaboraci&oacute;n en dinero en la Home Page de Stradonski <a href="http://stradonski.info" target="_blank">en este enlace.</a><br />
+					<img src="CC BY-SA.png" align="left" style="margin:5px 5px 0 0;">
+					Cualquier modificaci&oacute;n del trabajo debe dar siempre testimonio de la procedencia de este, que es este sitio web http://stradonski.info y debe poseer la misma licencia Creative Common que se muestra aqu&iacute;.
+				</div>
+			</div>
+		</div>
+		<div style="width: 500px; position: absolute; margin:400px 0 20px -250px; text-align: center; font-size: 12px;">
+				<a href="http://stradonski.info" target="_blank">Stradonski</a> &copy; 2007. Este trabajo se encuentra bajo la <a href="#" id="licencia">licencia CC BY-SA</a>.
+		</div>
+	</div>
+	<div style="margin-top:70px; font-size: 150px; text-align: center;">
+		<script type="text/javascript">
+			document.write(letraElegida.charAt(0));
+		</script>
+	</div>
+	<div id="nombre" style="font-size: 70px; text-align: center; display: none;">
+		<script type="text/javascript">
+			document.write(letraElegida.substring(1));
+		</script>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+		$("#linkopciones").click(function () {
+			if ($("#opcionesint").css("display")=="none"){
+				$("#opciones").slideDown(500, function(){
+					$("#opcionesint").fadeIn(2500);
+				});
+				document.getElementById('botonotra').focus();
+			}
+			else {
+				$("#opcionesint").fadeOut(500, function(){
+					$("#opciones").slideUp(300);
+				});
+				document.getElementById('botonotra').focus();
+			}
+		});
+		$("#licencia").click(function () {
+			if ($("#opcionesint").css("display")=="none"){
+				$("#opciones").slideDown(500, function(){
+					$("#opcionesint").fadeIn(2500);
+				});
+				document.getElementById('botonotra').focus();
+			}
+			else {
+				$("#opcionesint").fadeOut(500, function(){
+					$("#opciones").slideUp(300);
+				});
+				document.getElementById('botonotra').focus();
+			}
+		});
+		if (mostrarnombre == 1) {
+			$("#nombre").delay(delaynombre).fadeIn(fadenombre);
+		}
+		document.getElementById('botonotra').focus();
+</script>
+<script type="text/javascript">
+
+</script>
+
+</body>
+
+</html>
