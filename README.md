@@ -3,6 +3,8 @@
 This is a small educational web app that helps users memorize the Greek alphabet.
 Click a button to view a randomly selected Greek letter, along with its name as it sounds in Spanish.
 
+Particularly interesting is the idea of ​​a kind of very primitive database in basic JavaScript to store the letters.
+
 📺 [Live demo here](https://alejandropu.github.io/Greek-Characters/letra-aleatoria.html)
 
 ---
